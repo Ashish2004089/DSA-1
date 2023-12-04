@@ -91,7 +91,6 @@ public:
     // O(logn)
     int lazy_query(int ind, int low, int high, int l, int r)
     {
-        // Updating at nodes
         if (lazy[ind] != 0)
         {
             seg[ind] += lazy[ind];
@@ -102,14 +101,10 @@ public:
             }
             lazy[ind] = 0;
         }
-        // Partial Overlap
         if (high < l || low > r)
             return INT_MAX;
-        // complete Overlap
         if (low >= l && high <= r)
             return seg[ind];
-        // partial Overlap
-        // cout<<"YES"<<endl;
         int mid = (low + high) >> 1;
         int left = lazy_query(2 * ind + 1, low, mid, l, r);
         int right = lazy_query(2 * ind + 2, mid + 1, high, l, r);
