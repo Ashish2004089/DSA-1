@@ -55,4 +55,5 @@ String
 * z-algo -> kmp ka chota bhai   
 
 
-
+Subarray
+* Occurance of each index in all subarrays will be (n - i) * (i + 1LL) (0 -> based indexing)
